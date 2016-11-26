@@ -1,0 +1,44 @@
+body{
+	background-color: rgb(192, 192, 192);
+}
+
+#inboxCount{
+	font-size: 20;
+	float: left;
+}
+
+#main{
+	float: right;
+	border: solid;
+	position: absolute-right;
+}
+
+#counter{
+	float: left;
+	border: solid;
+	position: absolute-left;
+	position: absolute-top;
+	font-size: 20;
+
+
+}
+
+.emails{
+	border: solid;
+}
+
+.emails:hover{
+	
+	background: orange;
+}
+
+.emails2:hover{
+
+	background: orange;
+}
+
+#main2{
+	float: right;
+	border: solid;
+	position: absolute-right;
+}

@@ -2,17 +2,169 @@
 	<head>
 		<script src="js/mail-generator.js"></script>
 		<link href="css/style.css" rel="stylesheet" media="screen">
+		<title>Gee-mail Challenge</title>
     <script>
       window.onload = function(){
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
-        
+
+		var start = window.geemails;
+		for(i=0; i<start.length; i++){
+			// console.log(start);
+			var data = document.createElement("div");
+			data.className = "emails";
+			main.appendChild(data);
+
+			var send = document.createElement("div");
+			send.className = "who";
+			send.innerHTML = start[i].sender;
+			data.appendChild(send);
+
+			var topic = document.createElement("div");
+			topic.className = "what";
+			topic.innerHTML = "subject: " +start[i].subject;
+			send.appendChild(topic);
+
+			var time = document.createElement("div");
+			time.className = "when";
+			time.innerHTML = start[i].date;
+			topic.appendChild(time);
+
+			var meat = document.createElement("div");
+			meat.className = "message";
+			meat.innerHTML = start[i].body;
+			meat.style.display = "none";
+			time.appendChild(meat);
+
+          //=======inbox side bar========//
+
+
+		}	
+			var split = document.createElement("div");
+			split.id = "counter";
+			document.body.appendChild(split);
+
+			var side = document.createElement("div");
+			side.id = "inboxCount";
+			side.innerHTML = "Inbox:" + i;
+			counter.appendChild(side);
+
+			var addCount = document.getElementsByClassName("who2");
+			addCount.id = "counter2";
+
+//==============click show message=========
+
+			var productList = document.getElementsByClassName('who');
+			for(var i = 0; i<start.length; i++){
+				console.log(productList);
+  			productList[i].addEventListener('click', getList);
+
+  			function getList(){
+    		var showMessage = this.querySelectorAll('.message')[0];
+    		console.log(this);
+    		if(showMessage.style.display === 'none'){
+      		showMessage.style.display = 'block';
+    		}else{
+      		showMessage.style.display = 'none';
+    }
+  }
+}
+			
+
+//===========recurring messages====
+
+			function newRecur(){
+
+			var testing = window.getNewMessage();
+			// for(var i = 0; i < testing.length; i++)
+
+			var makeCon = document.createElement("div");
+			makeCon.className = "container2";
+			makeCon.id = "main2";
+			document.body.appendChild(makeCon);
+
+			var data2 = document.createElement("div");
+			data2.className = "emails2";
+			main.appendChild(data2);
+
+			var send2 = document.createElement("div");
+			send2.className = "who2";
+			send2.innerHTML = testing.sender;
+			send2.addEventListener("click", getList2);
+			data2.appendChild(send2);
+
+			var topic2 = document.createElement("div");
+			topic2.className = "what2";
+			topic2.innerHTML = "subject: " +testing.subject;
+			send2.appendChild(topic2);
+
+			var time2 = document.createElement("div");
+			time2.className = "when2";
+			time2.innerHTML = testing.date;
+			topic2.appendChild(time2);
+
+			var meat2 = document.createElement("div");
+			meat2.className = "message2";
+			meat2.innerHTML = testing.body;
+			meat2.style.display = "none";
+			time2.appendChild(meat2);
+
+			// var productList2 = document.getElementsByClassName('who2');
+			// productList2.addEventListener('click', getList2);
+
+
+
+			}
+
+			setInterval(newRecur, 5000);
+			
+
+        	
+
+        	
+			
+				
+  			function getList2(){
+    		var showMessage2 = this.querySelectorAll('.message2')[0];
+    		console.log(this);
+    		if(showMessage2.style.display === 'none'){
+      		showMessage2.style.display = 'block';
+    		}else{
+      		showMessage2.style.display = 'none';
+    }
+  }
+
+
+		
+
+
+        	
+
+        	
+
+
+        	// var refresh = document.createElement("div");
+        	// refresh.className = "more";
+        	// refresh.innerHTML = setInterval(function () { console.log(window.getNewMessage().sender); }, 5000);
+        	// main.appendChild(refresh);
+
+        // var transferData = document.createElement("div");
+        // transferData.className = "what";
+        // transferData.innerHTML = "test";
+        // main.appendChild(transferData);
+
+        // var put = document.createElement("div2");
+        // put.className = "who";
+        // put.innerHTML = "test2";
+        // transferData.appendChild(put);
+
       };
     </script>
 	</head>
 	<body>
 		<div class="container" id="main">
-			Build Me!
+			Gee-Mail 
 		</div>
+
 	</body>
 </html>
